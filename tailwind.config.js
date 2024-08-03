@@ -5,7 +5,25 @@ module.exports = {
     `./src/components/**/*.{js,jsx,ts,tsx}`,
   ],
   theme: {
-    extend: {},
+    container: {
+      center: true,
+      padding: {
+        xl: "2rem",
+        DEFAULT: "15px",
+      },
+    },
+    fontFamily: {
+      sans: ["Montserrat", "sans-serif"],
+    },
+    extend: {
+      colors: {
+        primary: "#0C4C61",
+        secondary: "#0098A7",
+        tertiary: "#71C6B0",
+        complementary: "#FFE882",
+        complementary2: "#FA8334",
+      },
+    },
   },
   plugins: [],
-}
+};
