@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useInView } from "react-intersection-observer";
+
 import Page from "../layout/Page";
 import Button from "../shared/Button";
 
@@ -7,14 +9,23 @@ import Imagen from "../../images/jornadas1.png";
 import ImagenMob from "../../images/jornadas1Mob.png";
 
 const Home5 = () => {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   return (
     <Page className="bg-secondary-gradient overflow-hidden pt-4">
       <div className="flex flex-col sm:flex-row mb-4 sm:mb-0 relative">
-        <div className="md:w-1/2 z-10">
-          <p className="text-5xl sm:text-7xl font-light text-complementary2 mb-4">
+        <div ref={ref} className="md:w-1/2 z-10">
+          <p
+            className={`text-5xl sm:text-7xl font-light text-complementary2 mb-4 transition-all delay-300 duration-500 ${
+              inView ? "opacity-100" : "opacity-0 -translate-x-24"
+            } `}
+          >
             Jornadas visuales
           </p>
-          <div className="text-primary text-sm sm:text-base mb-8 sm:mb-12">
+          <div
+            className={`text-primary text-sm sm:text-base mb-8 sm:mb-12 transition-all delay-300 duration-500 ${
+              inView ? "opacity-100" : "opacity-0 -translate-x-24"
+            } `}
+          >
             <p className="mb-4">
               Llevamos los servicios de salud visual a comunidades rurales y
               urbanas de escasos recursos en México a través de la alianza con
@@ -44,7 +55,9 @@ const Home5 = () => {
         className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2"
       />
       <img
-        className="absolute translate-y-8 ml-10 sm:ml-8 sm:right-[430px] sm:top-12 z-10"
+        className={`absolute translate-y-8 ml-10 sm:ml-8 sm:right-[430px] sm:top-12 z-10 transition-all delay-1000 duration-500 ${
+          inView ? "opacity-100" : "opacity-0 translate-y-24"
+        } `}
         src={VectorImg}
         alt="textura"
       />
