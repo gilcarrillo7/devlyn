@@ -22,6 +22,7 @@ module.exports = {
         tertiary: "#71C6B0",
         complementary: "#FFE882",
         complementary2: "#FA8334",
+        blue: "#028C9C",
       },
     },
   },

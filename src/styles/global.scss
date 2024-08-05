@@ -355,3 +355,19 @@
     #fce682 100%
   );
 }
+
+.carousel.carousel-slider {
+  padding-bottom: 50px;
+}
+.control-dots {
+  margin-top: 30px !important;
+  .dot {
+    background-color: #ffffff !important;
+    opacity: 1 !important;
+    width: 14px !important;
+    height: 14px !important;
+  }
+  .dot.selected {
+    background-color: #ffe882 !important;
+  }
+}
