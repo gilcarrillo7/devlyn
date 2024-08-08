@@ -25,12 +25,12 @@ const Home2 = () => {
         <Button variant="complementary2">Súmate</Button>
       </div>
       <div
-        className={`absolute right-0 h-[188px] sm:h-[319px] w-full sm:w-[638px] bg-complementary rounded-tl-full rounded-tr-full transition-all delay-700 duration-700 ${
+        className={`absolute right-0 h-[188px] sm:h-[319px] w-full sm:w-[638px] bg-complementary rounded-tl-full rounded-tr-full transition-all delay-[1200ms] duration-700 ${
           inView ? "opacity-100 bottom-[-60px] sm:bottom-0 " : "opacity-0 bottom-[-300px]"
         }`}
       />
       <div
-        className={`absolute h-[112px] sm:h-[145px] w-[232px] sm:w-[290px] right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-[160px] bg-complementary2 rounded-tl-full rounded-tr-full transition-all delay-1000 duration-700 ${
+        className={`absolute h-[112px] sm:h-[145px] w-[232px] sm:w-[290px] right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-[160px] bg-complementary2 rounded-tl-full rounded-tr-full transition-all delay-[1500ms] duration-700 ${
           inView ? "opacity-100 bottom-[-60px] sm:bottom-0" : "opacity-0 bottom-[-150px]"
         }`}
       />

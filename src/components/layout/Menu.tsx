@@ -16,7 +16,7 @@ const Option = ({ text, url }: { text: string; url: string }) => {
     <a
       role="button"
       tabIndex={0}
-      className="flex cursor-pointer hover:font-medium text-primary"
+      className="flex cursor-pointer hover:font-normal text-primary"
       onClick={() => handleNav(url)}
     >
       {text}
@@ -33,10 +33,10 @@ const Menu = () => {
           <Option text="Súmate" url="/nuestra_oferta" />
           <Option text="Testimonios" url="/#testimonios" />
           <Option text="Alianzas" url="/#alianzas" />
-          <Option text="Contacto" url="/#contacto" />
+          <Option text="Contacto" url="/contacto" />
         </div>
         <div className="border-t w-full border-primary my-12" />
-        <Social />
+        <Social color="primary" />
       </div>
     </div>
   );

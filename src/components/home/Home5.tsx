@@ -7,6 +7,7 @@ import Button from "../shared/Button";
 import VectorImg from "../../images/jornadasVector.svg";
 import Imagen from "../../images/jornadas1.png";
 import ImagenMob from "../../images/jornadas1Mob.png";
+import { navigate } from "gatsby";
 
 const Home5 = () => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
@@ -46,7 +47,9 @@ const Home5 = () => {
               transformar el mundo.
             </p>
           </div>
-          <Button variant="primary">Contacto</Button>
+          <Button variant="primary" onClick={() => navigate("/contacto")}>
+            Contacto
+          </Button>
         </div>
       </div>
       <img
