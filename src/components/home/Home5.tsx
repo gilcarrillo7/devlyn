@@ -14,7 +14,7 @@ const Home5 = () => {
   return (
     <Page className="bg-secondary-gradient overflow-hidden pt-4">
       <div className="flex flex-col sm:flex-row mb-4 sm:mb-0 relative">
-        <div ref={ref} className="md:w-1/2 z-10">
+        <div ref={ref} className="md:w-1/2 lg:w-[40%] z-10">
           <p
             className={`text-5xl sm:text-7xl font-light text-complementary2 mb-4 transition-all delay-300 duration-500 ${
               inView ? "opacity-100" : "opacity-0 -translate-x-24"
@@ -34,7 +34,7 @@ const Home5 = () => {
               realiza a cada persona un examen de la vista y se le entrega un
               kit de lentes (armazón oftálmico, micas con graduación y estuche).
             </p>
-            <p className="mb-4 text-complementary2 font-semibold text-base sm:text-lg">
+            <p className="mb-4 text-complementary2 font-semibold text-base sm:text-lg md:text-xl">
               En 2023 realizamos más de 80 jornadas beneficiando a más de 19 mil
               personas.
             </p>

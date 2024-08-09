@@ -13,13 +13,13 @@ const Home2 = () => {
           inView ? "opacity-100" : "opacity-0 -translate-x-24"
         }`}
       >
-        <p className="text-4xl md:text-6xl font-light text-primary mb-6">
+        <p className="text-4xl md:text-6xl  font-light text-primary mb-6 !leading-tight">
           En México <span className="font-bold">60 millones</span> de personas
           necesitan lentes, pero sólo{" "}
           <span className="font-bold text-tertiary">15 millones</span> tienen
           acceso a ellos.
         </p>
-        <p className="text-complementary2 font-bold text-lg sm:text-2xl mb-8">
+        <p className="text-complementary2 font-bold text-lg sm:text-2xl mb-8 md:mb-32">
           Tú puedes cambiar la situación.
         </p>
         <Button variant="complementary2">Súmate</Button>

@@ -23,21 +23,21 @@ const HamburgerMenu = ({
           aria-hidden="true"
           className={`block absolute h-1 w-9 transform transition duration-500 ease-in-out ${
             menuOpen ? "-rotate-45 bg-primary" : `-translate-y-4 bg-white`
-          } ${headerPrimary ? "bg-white" : ""}`}
+          } ${headerPrimary ? "!bg-primary" : ""}`}
         ></span>
         <span
           aria-hidden="true"
           className={`block absolute h-1 w-9 ${
             menuOpen ? "opacity-0" : "bg-white"
           } ${
-            headerPrimary ? "bg-white" : ""
+            headerPrimary ? "!bg-primary" : ""
           } transform transition duration-500 ease-in-out `}
         ></span>
         <span
           aria-hidden="true"
           className={`block absolute h-1 w-9 transform  transition duration-500 ease-in-out ${
             menuOpen ? "rotate-45 bg-primary" : `translate-y-4 bg-white`
-          } ${headerPrimary ? "bg-white" : ""}`}
+          } ${headerPrimary ? "!bg-primary" : ""}`}
         ></span>
       </div>
     </button>

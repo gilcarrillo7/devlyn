@@ -31,7 +31,7 @@ const Header = ({
           headerComplementary ? "bg-lightpurple" : ""
         } ${!headerPrimary && !headerComplementary ? "bg-transparent" : ""}`}
       >
-        <div className="container flex items-center py-4">
+        <div className="container flex items-center py-4 sm:py-8">
           <div className="w-full flex items-center gap-2 sm:gap-8 z-50">
             <a
               href="#"
@@ -53,14 +53,16 @@ const Header = ({
             </a>
           </div>
           <div className="flex z-50 gap-12">
-            <Button
-              variant="complementary"
-              className={`${
-                menuOpen ? "hidden" : "hidden sm:block"
-              } font-bold sm:min-w-[150px]`}
-            >
-              Dona
-            </Button>
+            {!headerPrimary && (
+              <Button
+                variant="complementary"
+                className={`${
+                  menuOpen ? "hidden" : "hidden sm:block"
+                } font-bold sm:min-w-[150px]`}
+              >
+                Dona
+              </Button>
+            )}
             <HamburgerMenu
               headerPrimary={headerPrimary || headerComplementary}
             />

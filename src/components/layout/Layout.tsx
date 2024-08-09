@@ -7,9 +7,15 @@ interface IProps {
   children: boolean | React.ReactPortal | React.ReactNode;
   headerPrimary?: boolean;
   headerComplementary?: boolean;
+  footer?: boolean;
 }
 
-const Layout = ({ headerPrimary, headerComplementary, children }: IProps) => {
+const Layout = ({
+  headerPrimary,
+  headerComplementary,
+  children,
+  footer = true,
+}: IProps) => {
   return (
     <>
       <Header
@@ -30,7 +36,7 @@ const Layout = ({ headerPrimary, headerComplementary, children }: IProps) => {
       >
         {children}
       </motion.main>
-      <Footer />
+      {footer && <Footer />}
     </>
   );
 };

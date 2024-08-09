@@ -356,6 +356,13 @@
   );
 }
 
+.bg-contact-gradient {
+  background: linear-gradient(180deg, #ffe882 59%, #0098a7 89.5%);
+  @media (width<640px) {
+    background: linear-gradient(180deg, #ffe882 50.22%, #0098a7 80.08%);
+  }
+}
+
 .carousel.carousel-slider {
   padding-bottom: 50px;
 }

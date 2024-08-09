@@ -22,7 +22,7 @@ const Home1 = () => {
       <div ref={ref} className="flex flex-col md:flex-row pt-24 md:pt-4">
         <div className="md:w-1/2 md:order-2 mb-12 md:mb-0 flex justify-center">
           <div className="max-w-[80%]">
-            <Lottie options={defaultOptions} />
+            <Lottie options={defaultOptions} style={{ cursor: "auto" }} />
           </div>
         </div>
         <div className="md:w-1/2 md:order-1 md:pr-8 md:pr-20 flex items-center">
