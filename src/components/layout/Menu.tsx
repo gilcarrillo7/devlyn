@@ -30,7 +30,7 @@ const Menu = () => {
       <div className="container px-4 sm:px-10 sm:py-4 flex flex-col w-full sm:w-[450px]">
         <div className="flex flex-col text-3xl sm:text-5xl font-thin w-full gap-6 sm:gap-8 pt-6 sm:pt-0">
           <Option text="Quiénes somos" url="/quienes_somos" />
-          <Option text="Súmate" url="/nuestra_oferta" />
+          <Option text="Súmate" url="/sumate" />
           <Option text="Testimonios" url="/#testimonios" />
           <Option text="Alianzas" url="/#alianzas" />
           <Option text="Contacto" url="/contacto" />

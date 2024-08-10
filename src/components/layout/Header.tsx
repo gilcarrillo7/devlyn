@@ -10,13 +10,7 @@ import Logo from "../../images/logo.svg";
 import LogoWhite from "../../images/logoWhite.svg";
 import Button from "../shared/Button";
 
-const Header = ({
-  headerPrimary = false,
-  headerComplementary = false,
-}: {
-  headerPrimary?: boolean;
-  headerComplementary?: boolean;
-}) => {
+const Header = ({ headerPrimary = false }: { headerPrimary?: boolean }) => {
   const dispatch = useAppDispatch();
 
   const menuOpen = useAppSelector(selectMenuOpen);
@@ -26,11 +20,7 @@ const Header = ({
       <button className="position-relative w-full bg-complementary text-primary font-bold text-center py-4 text-xl sm:hidden">
         Dona
       </button>
-      <header
-        className={`absolute w-full ${headerPrimary ? "bg-primary" : ""} ${
-          headerComplementary ? "bg-lightpurple" : ""
-        } ${!headerPrimary && !headerComplementary ? "bg-transparent" : ""}`}
-      >
+      <header className={`absolute w-full`}>
         <div className="container flex items-center py-4 sm:py-8">
           <div className="w-full flex items-center gap-2 sm:gap-8 z-50">
             <a
@@ -42,11 +32,7 @@ const Header = ({
               className="p-0"
             >
               <img
-                src={
-                  menuOpen || headerPrimary || headerComplementary
-                    ? Logo
-                    : LogoWhite
-                }
+                src={menuOpen || headerPrimary ? Logo : LogoWhite}
                 alt="Fortalecimiento Logo"
                 className="w-28 sm:w-36 mr-4"
               />
@@ -63,9 +49,7 @@ const Header = ({
                 Dona
               </Button>
             )}
-            <HamburgerMenu
-              headerPrimary={headerPrimary || headerComplementary}
-            />
+            <HamburgerMenu headerPrimary={headerPrimary} />
           </div>
         </div>
         {menuOpen && (

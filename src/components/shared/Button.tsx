@@ -2,7 +2,7 @@ import * as React from "react";
 import { useInView } from "react-intersection-observer";
 
 interface IProps {
-  variant: "transparent" | "complementary" | "complementary2" | "primary";
+  variant: "transparent" | "complementary" | "complementary2" | "primary" |"blue";
   className?: string;
   onClick?: () => void;
   children: React.ReactNode;
@@ -60,6 +60,18 @@ const Button = ({
           ref={ref}
           type={type}
           className={`${className} text-white font-normal py-2 px-8 bg-complementary2 border border-complementary2 hover:border-complementary2 hover:bg-transparent hover:text-complementary2 w-full sm:w-auto mx-auto sm:min-w-[220px] transition-opacity transition-transform delay-300 duration-500 ${
+            inView ? "opacity-100" : "opacity-0 translate-y-12"
+          }`}
+          onClick={onClick}
+        >
+          {children}
+        </button>
+      )}
+      {variant === "blue" && (
+        <button
+          ref={ref}
+          type={type}
+          className={`${className} text-white font-normal py-2 px-8 bg-blue border border-blue hover:border-blue hover:bg-transparent hover:text-blue w-full sm:w-auto mx-auto sm:min-w-[220px] transition-opacity transition-transform delay-300 duration-500 ${
             inView ? "opacity-100" : "opacity-0 translate-y-12"
           }`}
           onClick={onClick}

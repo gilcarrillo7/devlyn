@@ -6,13 +6,11 @@ import Footer from "./Footer";
 interface IProps {
   children: boolean | React.ReactPortal | React.ReactNode;
   headerPrimary?: boolean;
-  headerComplementary?: boolean;
   footer?: boolean;
 }
 
 const Layout = ({
   headerPrimary,
-  headerComplementary,
   children,
   footer = true,
 }: IProps) => {
@@ -20,7 +18,6 @@ const Layout = ({
     <>
       <Header
         headerPrimary={headerPrimary}
-        headerComplementary={headerComplementary}
       />
       <motion.main
         initial={{ opacity: 0 }}
