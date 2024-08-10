@@ -22,7 +22,7 @@ const Header = ({ headerPrimary = false }: { headerPrimary?: boolean }) => {
       </button>
       <header className={`absolute w-full`}>
         <div className="container flex items-center py-4 sm:py-8">
-          <div className="w-full flex items-center gap-2 sm:gap-8 z-50">
+          <div className="relative w-full flex items-center gap-2 sm:gap-8 z-50">
             <a
               href="#"
               onClick={() => {

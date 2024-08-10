@@ -26,7 +26,7 @@ const Option = ({ text, url }: { text: string; url: string }) => {
 
 const Menu = () => {
   return (
-    <div className="w-screen h-screen bg-secondary-gradient text-white fixed left-0 top-0 z-20 flex items-center text-white font-light">
+    <div className="w-screen h-screen bg-secondary-gradient text-white fixed left-0 top-0 z-40 flex items-center text-white font-light">
       <div className="container px-4 sm:px-10 sm:py-4 flex flex-col w-full sm:w-[450px]">
         <div className="flex flex-col text-3xl sm:text-5xl font-thin w-full gap-6 sm:gap-8 pt-6 sm:pt-0">
           <Option text="Quiénes somos" url="/quienes_somos" />
