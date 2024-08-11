@@ -1,10 +1,17 @@
 import * as React from "react";
+import { useInView } from "react-intersection-observer";
 
 import Profile from "../../images/somos/profile.png";
 
 const Informe = ({ anio, url }: { anio: string; url: string }) => {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   return (
-    <div className="relative border border-white">
+    <div
+      ref={ref}
+      className={`relative border border-white transition-all delay-300 duration-500 ${
+        inView ? "opacity-100" : "opacity-0 translate-y-32"
+      }`}
+    >
       <img src={Profile} className="w-full h-full opacity-0" alt="profile" />
       <div
         className={`absolute bg-secondary text-white bottom-0 left-0 flex flex-col z-10 text-center justify-center w-full h-full p-8`}
@@ -30,8 +37,14 @@ const Miembro = ({
   role: string;
   index: number;
 }) => {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   return (
-    <div className="relative">
+    <div
+      ref={ref}
+      className={`relative transition-all delay-300 duration-500 ${
+        inView ? "opacity-100" : "opacity-0 translate-y-32"
+      }`}
+    >
       <img src={img} className="w-full h-full" alt={role} />
       <div
         className={`absolute bottom-0 left-0 flex flex-col z-10 text-center justify-center w-full h-full p-4 md:p-8 opacity-80 ${
@@ -56,8 +69,14 @@ const Miembro = ({
 };
 
 const Donut = ({ className }: { className: string }) => {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   return (
-    <div className={`donut ${className}`}>
+    <div
+      ref={ref}
+      className={`donut ${className} transition-all delay-1000 duration-500 ${
+        inView ? "opacity-100" : "opacity-0 "
+      }`}
+    >
       <div className="donut-chart-block block">
         <div className="donut-chart">
           <div id="part1" className="portion-block">
@@ -74,6 +93,11 @@ const Donut = ({ className }: { className: string }) => {
 };
 
 const Somos3 = () => {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+  const { ref: refText, inView: inViewText } = useInView({
+    threshold: 0.3,
+    triggerOnce: true,
+  });
   const consejo = [
     {
       title: "Dr. Miguel Ángel Santinelli Ramos",
@@ -146,12 +170,20 @@ const Somos3 = () => {
   return (
     <>
       <div className="relative bg-secondary">
-        <div className="container py-16 lg:py-[136px]">
-          <p className="text-white font-medium text-2xl md:text-5xl pr-[50%] sm:pr-96 md:pr-32 xl:pr-0">
-            Nuestro Consejo Directivo
-          </p>
+        <img src={Profile} className="opacity-0 w-1/2 md:w-1/4" alt="profile" />
+        <div className="absolute top-0 left-0 w-full h-full flex items-center">
+          <div className="container">
+            <p
+              ref={ref}
+              className={`text-white font-medium text-2xl md:text-5xl pr-[50%] sm:pr-96 md:pr-32 xl:pr-0 transition-all delay-300 duration-500 ${
+                inView ? "opacity-100" : "opacity-0 -translate-x-32"
+              }`}
+            >
+              Nuestro Consejo Directivo
+            </p>
+          </div>
         </div>
-        <div className="bg-tertiary absolute right-0 top-0 w-1/2 md:w-[320px] h-full md:h-[320px]"></div>
+        <div className="bg-tertiary absolute right-0 top-0 w-1/2 md:w-1/4 h-full"></div>
       </div>
       <div className="relative grid grid-cols-2 md:grid-cols-4">
         {consejo.map((miembro, index) => (
@@ -195,7 +227,9 @@ const Somos3 = () => {
             viewBox="0 0 217 218"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className={``}
+            className={`transition-all delay-1000 duration-500 ${
+              inViewText ? "opacity-100" : "opacity-0 translate-y-32"
+            }`}
           >
             <path
               d="M133.04 3.2193L108.51 94.806L83.9637 3.2193C83.4402 1.25983 81.4209 0.0931287 79.4614 0.631611C77.5019 1.15513 76.3352 3.15947 76.8737 5.11895L101.405 96.7057L34.3636 29.6647C32.9277 28.2288 30.6092 28.2288 29.1733 29.6647C27.7373 31.1007 27.7373 33.4191 29.1733 34.8551L96.2142 101.896L4.62748 77.3652C2.66801 76.8417 0.648708 77.9934 0.125179 79.9679C-0.398335 81.9124 0.768367 83.9317 2.72784 84.4552L94.3145 109.001L2.72784 133.532C0.768369 134.055 -0.398333 136.075 0.125181 138.034C0.64871 139.994 2.66801 141.16 4.62748 140.637L96.2142 116.106L29.1733 183.147C27.7373 184.568 27.7373 186.901 29.1733 188.337C30.6092 189.773 32.9277 189.773 34.3636 188.337L101.405 121.296L76.8737 212.868C76.3353 214.842 77.502 216.847 79.4614 217.37C81.4209 217.894 83.4402 216.742 83.9637 214.783L108.51 123.196L133.04 214.783C133.564 216.742 135.583 217.894 137.543 217.37C139.188 216.937 140.265 215.456 140.265 213.825C140.265 213.511 140.22 213.197 140.145 212.868L115.6 121.296L182.64 188.337C184.076 189.773 186.41 189.773 187.846 188.337C188.564 187.619 188.908 186.677 188.908 185.735C188.908 184.792 188.564 183.85 187.846 183.147L120.805 116.106L212.377 140.637C214.336 141.16 216.355 139.994 216.879 138.034C216.969 137.72 216.999 137.406 216.999 137.077C216.999 135.461 215.922 133.981 214.276 133.532L122.704 109.001L214.276 84.4552C215.922 84.0214 216.999 82.5406 216.999 80.9102C216.999 80.5961 216.969 80.282 216.879 79.9678C216.355 77.9934 214.336 76.8417 212.377 77.3652L120.805 101.896L187.846 34.8551C188.564 34.1521 188.908 33.1948 188.908 32.2674C188.908 31.325 188.564 30.3827 187.846 29.6647C186.41 28.2288 184.076 28.2288 182.64 29.6647L115.6 96.7057L140.145 5.11894C140.22 4.80483 140.265 4.49073 140.265 4.17661C140.265 2.54621 139.188 1.06539 137.543 0.63161C135.583 0.093127 133.564 1.25983 133.04 3.2193Z"
@@ -211,7 +245,12 @@ const Somos3 = () => {
               url={informe.url}
             />
           ))}
-          <div className="relative border border-white">
+          <div
+            ref={refText}
+            className={`relative border border-white transition-all delay-300 duration-500 ${
+              inViewText ? "opacity-100" : "opacity-0 translate-y-32"
+            }`}
+          >
             <img
               src={Profile}
               className="w-full h-full opacity-0"
@@ -220,12 +259,16 @@ const Somos3 = () => {
             <div
               className={`absolute bg-complementary text-primary bottom-0 left-0 flex flex-col z-10 text-center justify-center w-full h-full p-8`}
             >
-              <p className="text-xl md:text-3xl">
+              <p className={`text-xl md:text-3xl`}>
                 Descarga el informe dando clic
               </p>
             </div>
           </div>
-          <div className="md:hidden bg-tertiary">
+          <div
+            className={`md:hidden bg-tertiary transition-all delay-1000 duration-500 ${
+              inViewText ? "opacity-100" : "opacity-0 translate-y-32"
+            }`}
+          >
             <img
               src={Profile}
               className="w-full h-full opacity-0"

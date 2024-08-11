@@ -1,34 +1,54 @@
 import * as React from "react";
+import { useInView } from "react-intersection-observer";
+
 import Page from "../layout/Page";
 
 const Somos1 = () => {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+  const { ref: ref2, inView: inView2 } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
   return (
     <Page className="bg-primary-gradient">
-      <div className="flex">
+      <div ref={ref} className="flex">
         <div className="w-full md:w-1/2 text-lg md:text-xl font-light">
-          <p className="text-gradient-complementary font-medium text-3xl sm:text-4xl lg:text-6xl mb-8 md:mb-12 text-center md:text-left">
+          <p
+            className={`text-gradient-complementary font-medium text-3xl sm:text-4xl lg:text-6xl mb-8 md:mb-12 text-center md:text-left transition-all delay-300 duration-500 ${
+              inView ? "opacity-100" : "opacity-0 translate-y-32"
+            }`}
+          >
             Propósito
           </p>
-          <p className="text-complementary mb-4 md:mb-6">
-            La motivación de Fundación Devlyn proviene de la profunda tradición
-            de ayuda de la familia Devlyn.
-          </p>
-          <p className="text-white mb-4 md:mb-6">
-            Desde hace 16 años nos consolidamos; recibiendo el legado de 80 años
-            para brindar{" "}
-            <strong>
-              el poder de ver y disfrutar el espectáculo de la vida.
-            </strong>
-          </p>
+          <div
+            className={`transition-all delay-500 duration-300 ${
+              inView ? "opacity-100" : "opacity-0 translate-y-32"
+            }`}
+          >
+            <p className="text-complementary mb-4 md:mb-6">
+              La motivación de Fundación Devlyn proviene de la profunda
+              tradición de ayuda de la familia Devlyn.
+            </p>
+            <p className="text-white mb-4 md:mb-6">
+              Desde hace 16 años nos consolidamos; recibiendo el legado de 80
+              años para brindar{" "}
+              <strong>
+                el poder de ver y disfrutar el espectáculo de la vida.
+              </strong>
+            </p>
+          </div>
         </div>
       </div>
       <svg
+        ref={ref2}
         width="380"
         height="761"
         viewBox="0 0 380 761"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={`absolute right-0 top-[calc(100%-380px)] hidden md:block`}
+        className={`absolute right-0 top-[calc(100%-380px)] hidden md:block transition-all delay-1000 duration-500 ${
+          inView2 ? "opacity-100" : "opacity-0 translate-x-40"
+        }`}
       >
         <path
           d="M760.422 380.211C760.422 590.188 590.188 760.422 380.211 760.422C170.224 760.422 0 590.188 0 380.211C0 170.22 170.224 0 380.211 0C590.188 0 760.422 170.22 760.422 380.211Z"
@@ -45,7 +65,9 @@ const Somos1 = () => {
         viewBox="0 0 151 450"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={`absolute right-0 top-[calc(100%-225px)] md:hidden`}
+        className={`absolute right-0 top-[calc(100%-225px)] md:hidden transition-all delay-1000 duration-500 ${
+          inView ? "opacity-100" : "opacity-0 translate-x-40"
+        }`}
       >
         <path
           d="M450 225C450 349.26 349.26 450 225 450C100.735 450 0 349.26 0 225C0 100.732 100.735 0 225 0C349.26 0 450 100.732 450 225Z"
