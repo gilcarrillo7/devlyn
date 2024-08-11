@@ -367,6 +367,16 @@
   color: linear-gradient(90deg, #0098a7 0%, #71c6b0 100%);
 }
 
+.text-gradient-complementary {
+  background: -webkit-linear-gradient(
+    in oklab,
+    rgba(113, 198, 176, 1) 0%,
+    rgba(255, 232, 130, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .carousel.carousel-slider {
   padding-bottom: 50px;
 }
@@ -380,5 +390,82 @@
   }
   .dot.selected {
     background-color: #ffe882 !important;
+  }
+}
+
+.donut {
+  .donut-chart {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 0 auto 2rem;
+    border-radius: 100%;
+  }
+  .donut-center {
+    background: #ffffff;
+    position: absolute;
+    text-align: center;
+    font-size: 28px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 160px;
+    height: 160px;
+    margin: auto;
+    border-radius: 50%;
+  }
+
+  .portion-block {
+    border-radius: 50%;
+    clip: rect(0px, 320px, 320px, 160px);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+  .circle {
+    border-radius: 50%;
+    clip: rect(0px, 160px, 320px, 0px);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    font-family: monospace;
+    font-size: 1.5rem;
+  }
+
+  #part1 {
+    transform: rotate(0deg);
+  }
+
+  #part1 .circle {
+    background-color: #71c6b0;
+    //transform: rotate(90deg);
+    animation: first 1s 1 forwards;
+  }
+
+  #part2 {
+    transform: rotate(180deg);
+  }
+  #part2 .circle {
+    background-color: #ffe882;
+    //transform: rotate(90deg);
+    animation: second 1s 1 forwards 1s;
+  }
+  @keyframes first {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(90deg);
+    }
+  }
+
+  @keyframes second {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(90deg);
+    }
   }
 }
