@@ -46,7 +46,10 @@ const Home8 = () => {
   ];
   return (
     <Page className="py-8 sm:py-4">
-      <p className="text-primary text-3xl sm:text-6xl text-center mb-8 sm:mb-16 lg:mb-24">
+      <p
+        id="alianzas"
+        className="text-primary text-3xl sm:text-6xl text-center mb-8 sm:mb-16 lg:mb-24"
+      >
         Nuestras alianzas
       </p>
       <GridLogos logos={logos} />

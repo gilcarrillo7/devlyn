@@ -4,6 +4,7 @@ import Lottie from "react-lottie";
 import * as animationData from "../../assets/animation.json";
 import Page from "../layout/Page";
 import Button from "../shared/Button";
+import { navigate } from "gatsby";
 
 const Home1 = () => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
@@ -38,7 +39,11 @@ const Home1 = () => {
               </span>{" "}
               y con ello transformar sus vidas de forma positiva.
             </p>
-            <Button variant="transparent" className="mt-6">
+            <Button
+              variant="transparent"
+              className="mt-6"
+              onClick={() => navigate("/quienes_somos")}
+            >
               Conoce más
             </Button>
           </div>
