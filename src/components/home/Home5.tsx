@@ -13,7 +13,7 @@ const Home5 = () => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   return (
     <Page className="bg-secondary-gradient overflow-hidden pt-4">
-      <div className="flex flex-col sm:flex-row mb-4 sm:mb-0 relative">
+      <div className="flex flex-col md:flex-row mb-4 sm:mb-0 relative">
         <div ref={ref} className="md:w-1/2 lg:w-[40%] z-10">
           <p
             className={`text-5xl sm:text-7xl font-light text-complementary2 mb-4 transition-all delay-300 duration-500 ${
@@ -55,10 +55,10 @@ const Home5 = () => {
       <img
         src={Imagen}
         alt="jornadas visuales"
-        className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2"
+        className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2"
       />
       <img
-        className={`absolute translate-y-8 ml-10 sm:ml-8 sm:right-[430px] sm:top-12 z-10 transition-all delay-1000 duration-500 ${
+        className={`absolute translate-y-8 ml-10 md:ml-8 md:right-[430px] md:top-12 z-10 transition-all delay-1000 duration-500 ${
           inView ? "opacity-100" : "opacity-0 translate-y-24"
         } `}
         src={VectorImg}
@@ -68,7 +68,7 @@ const Home5 = () => {
         <img
           src={ImagenMob}
           alt="jornadas visuales"
-          className="z-0 sm:hidden mt-8 translate-x-4 z-0"
+          className="z-0 md:hidden mt-8 translate-x-4 z-0"
         />
       </div>
     </Page>

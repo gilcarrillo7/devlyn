@@ -7,8 +7,8 @@ import Button from "../shared/Button";
 const Home6 = () => {
   return (
     <div className="bg-primary relative overflow-hidden">
-      <div className="container flex justify-end">
-        <div className="sm:w-1/2 py-4 sm:py-8 sm:absolute sm:right-0 sm:top-1/2 sm:-translate-y-1/2">
+      <div className="container flex justify-end mb-16 md:mb-4 pt-4">
+        <div className="lg:w-1/2 py-4 lg:py-8 lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
           <p className="text-tertiary text-3xl sm:text-6xl mb-4">
             Óptica Devlyn
           </p>
@@ -34,7 +34,7 @@ const Home6 = () => {
           fill="#0098A7"
         />
       </svg>
-      <img src={Nino} alt="nino lentes" className="hidden sm:block z-10 relative" />
+      <img src={Nino} alt="nino lentes" className="hidden sm:block z-10 relative sm:ml-[-30px] xl:ml-0" />
       <img src={NinoMob} alt="nino lentes" className="sm:hidden z-10 relative" />
     </div>
   );
