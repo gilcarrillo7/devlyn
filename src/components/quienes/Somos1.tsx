@@ -1,9 +1,17 @@
 import * as React from "react";
+import { useState } from "react";
+import ReactPlayer from "react-player";
+import { RingLoader } from "react-spinners";
 import { useInView } from "react-intersection-observer";
 
 import Page from "../layout/Page";
 
+import Preview from "../../images/somos/preview.svg";
+import Textura from "../../images/somos/textura.svg";
+
 const Somos1 = () => {
+  const [playing, setPlaying] = useState(false);
+  const [loader, setLoader] = useState(false);
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   const { ref: ref2, inView: inView2 } = useInView({
     threshold: 0.2,
@@ -11,7 +19,7 @@ const Somos1 = () => {
   });
   return (
     <Page className="bg-primary-gradient">
-      <div ref={ref} className="flex">
+      <div ref={ref} className="flex flex-col sm:flex-row pt-16">
         <div className="w-full md:w-1/2 text-lg md:text-xl font-light">
           <p
             className={`text-gradient-complementary font-medium text-3xl sm:text-4xl lg:text-6xl mb-8 md:mb-12 text-center md:text-left transition-all delay-300 duration-500 ${
@@ -36,6 +44,45 @@ const Somos1 = () => {
                 el poder de ver y disfrutar el espectáculo de la vida.
               </strong>
             </p>
+          </div>
+        </div>
+        <div className="w-full md:w-1/2 flex items-center justify-center z-10">
+          <div className="relative mt-20 sm:mt-0 min-h-[358px] min-w-[343px]">
+            {loader && (
+              <div className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <RingLoader color="#FFE882" size={30} />
+              </div>
+            )}
+            {playing && (
+              <div className="relative h-[358px] w-[343px]">
+                <ReactPlayer
+                  width="100%"
+                  height="100%"
+                  controls
+                  url={"https://vimeo.com/998393630"}
+                  playing={true}
+                  onStart={() => setLoader(false)}
+                ></ReactPlayer>
+              </div>
+            )}
+            {!playing && (
+              <>
+                <img
+                  src={Textura}
+                  className="absolute -left-[40px] -top-[50px] -z-10 scale-75 md:scale-100"
+                  alt=""
+                />
+                <img
+                  src={Preview}
+                  className="max-w-[calc(100%-15px)] h-[358px] cursor-pointer z-10"
+                  alt=""
+                  onClick={() => {
+                    setPlaying(true);
+                    setLoader(true);
+                  }}
+                />
+              </>
+            )}
           </div>
         </div>
       </div>

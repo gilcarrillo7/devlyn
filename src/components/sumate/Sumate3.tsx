@@ -4,6 +4,7 @@ import Arc from "../../images/sumate/arc1.png";
 import ImgSum1 from "../../images/sumate/imgSum1.png";
 import Button from "../shared/Button";
 import { useInView } from "react-intersection-observer";
+import { navigate } from "gatsby";
 
 const FooterSum = () => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
@@ -157,7 +158,12 @@ const Sumate3 = () => {
             Únete a este gran voluntariado y marca la diferencia en el acceso a
             la salud visual para todas las personas.
           </p>
-          <Button variant="complementary2">Quiero hacer voluntariado</Button>
+          <Button
+            variant="complementary2"
+            onClick={() => navigate("/contacto")}
+          >
+            Quiero hacer voluntariado
+          </Button>
         </div>
       </div>
       <FooterSum />

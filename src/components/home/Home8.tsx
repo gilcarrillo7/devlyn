@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useInView } from "react-intersection-observer";
 import Page from "../layout/Page";
 
 import Logo1 from "../../images/alianzas/logo1.png";
@@ -23,6 +24,7 @@ import Logo19 from "../../images/alianzas/logo19.png";
 import GridLogos from "./GridLogos";
 
 const Home8 = () => {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   const logos = [
     Logo1,
     Logo2,
@@ -48,7 +50,10 @@ const Home8 = () => {
     <Page className="py-8 sm:py-4">
       <p
         id="alianzas"
-        className="text-primary text-3xl sm:text-6xl text-center mb-8 sm:mb-16 lg:mb-24"
+        ref={ref}
+        className={`text-primary text-3xl sm:text-6xl text-center mb-8 sm:mb-16 lg:mb-24 transition-all delay-300 duration-300 ${
+          inView ? "opacity-100" : "opacity-0 translate-y-24"
+        }`}
       >
         Nuestras alianzas
       </p>

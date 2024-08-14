@@ -1,4 +1,19 @@
 import * as React from "react";
+import { useInView } from "react-intersection-observer";
+
+const Imagen = ({ logo }: { logo: string }) => {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+  return (
+    <img
+      ref={ref}
+      src={logo}
+      alt="alianza"
+      className={`transition-all delay-100 duration-300 ${
+        inView ? "opacity-100" : "opacity-0 translate-y-24"
+      }`}
+    />
+  );
+};
 
 const GridLogos = ({ logos }: { logos: any[] }) => {
   const cols = 7;
@@ -15,42 +30,22 @@ const GridLogos = ({ logos }: { logos: any[] }) => {
     <>
       <div className={`hidden md:grid grid-cols-7 gap-8`}>
         {firsts.map((logo, index) => (
-          <img
-            key={`alizna${index}`}
-            src={logo}
-            alt="alianza"
-            className=""
-          />
+          <Imagen key={`alizna${index}`} logo={logo} />
         ))}
       </div>
       <div className="hidden md:flex justify-around gap-8 mt-8">
         {lasts.map((logo, index) => (
-          <img
-            key={`aliznaend${index}`}
-            src={logo}
-            alt="alianza"
-            className=""
-          />
+          <Imagen key={`aliznaend${index}`} logo={logo} />
         ))}
       </div>
       <div className={`grid grid-cols-3 gap-8 md:hidden`}>
         {firstsMob.map((logo, index) => (
-          <img
-            key={`alizna${index}`}
-            src={logo}
-            alt="alianza"
-            className=""
-          />
+          <Imagen key={`alizna${index}`} logo={logo} />
         ))}
       </div>
       <div className="flex justify-around gap-8 mt-8 md:hidden">
         {lastsMob.map((logo, index) => (
-          <img
-            key={`aliznaend${index}`}
-            src={logo}
-            alt="alianza"
-            className=""
-          />
+          <Imagen key={`aliznaend${index}`} logo={logo} />
         ))}
       </div>
     </>

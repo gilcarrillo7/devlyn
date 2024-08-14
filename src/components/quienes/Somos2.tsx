@@ -83,6 +83,7 @@ const Somos2 = () => {
           <div className="flex lg:grid lg:grid-cols-4 overflow-auto lg:overflow-hidden">
             {valores.map((valor, indx) => (
               <div
+                key={`${indx}valor`}
                 className={`shrink-0 w-[300px] lg:w-auto border-tertiary px-8 ${
                   indx !== 0 ? "border-l" : ""
                 } 

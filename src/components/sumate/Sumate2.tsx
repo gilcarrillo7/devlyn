@@ -47,7 +47,13 @@ const Sumate2 = () => {
             dentro de tiendas comerciales)
           </p>
 
-          <Button variant="transparent" className="mt-6 md:mt-12">
+          <Button
+            variant="transparent"
+            className="mt-6 md:mt-12"
+            onClick={() =>
+              window.open("https://www.devlyn.com.mx/localizador-de-opticas")
+            }
+          >
             Sucursales
           </Button>
         </div>
