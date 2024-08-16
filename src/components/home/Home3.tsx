@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useInView } from "react-intersection-observer";
 import { Carousel } from "react-responsive-carousel";
-import AnimatedNumbers from "react-animated-numbers";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -22,6 +21,10 @@ const Resultado = ({
   index: number;
 }) => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+
+  const numberFormatter = new Intl.NumberFormat();
+  const formatValue = (value: number) => numberFormatter.format(value);
+
   return (
     <div
       ref={ref}
@@ -32,21 +35,9 @@ const Resultado = ({
       <div className="flex items-center justify-center min-h-[80px]">
         <img alt="" className="!w-auto self-center" src={img} />
       </div>
-      <div className="container flex justify-center">
-        <AnimatedNumbers
-          includeComma
-          transitions={(index) => ({
-            type: "spring",
-            duration: index + 0.5,
-          })}
-          animateToNumber={number}
-          fontStyle={{
-            fontSize: 36,
-            color: "#FA8334",
-            fontWeight: "bold",
-          }}
-        />
-      </div>
+      <p className=" flex justify-center text-complementary2 font-bold text-4xl w-full h-[30px]">
+        {formatValue(number)}
+      </p>
       <p className="text-lg sm:text-xl text-secondary font-semibold">
         {description}
       </p>
