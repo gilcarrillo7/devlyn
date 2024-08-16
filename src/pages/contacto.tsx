@@ -13,6 +13,8 @@ import {
 import { useAppDispatch } from "../hooks";
 import Social from "../components/layout/Social";
 import { useInView } from "react-intersection-observer";
+import { HeadFC } from "gatsby";
+import { SEO } from "../components/layout/SEO";
 
 const Textura = () => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
@@ -215,3 +217,5 @@ const Contacto = () => {
 };
 
 export default Contacto;
+
+export const Head: HeadFC = () => <SEO title="Contacto" />;

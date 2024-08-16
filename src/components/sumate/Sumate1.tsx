@@ -1,8 +1,11 @@
 import * as React from "react";
 
-import Img1 from "../../images/sumate1.png";
 import Button from "../shared/Button";
 import { useInView } from "react-intersection-observer";
+import { useAppSelector } from "../../hooks";
+import { selectDonateUrl } from "../../features/ui/uiSlice";
+
+import Img1 from "../../images/sumate1.png";
 
 const Textura1 = () => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
@@ -90,6 +93,7 @@ const Textura3 = () => {
 };
 
 const Sumate1 = () => {
+  const donateUrl = useAppSelector(selectDonateUrl);
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   return (
     <div
@@ -120,7 +124,9 @@ const Sumate1 = () => {
             <p className="text-xl sm:text-2xl text-complementary2 mb-8 sm:mb-16">
               Dona desde un par de lentes por $250.00
             </p>
-            <Button variant="blue">Donar</Button>
+            <Button variant="blue" onClick={() => window.open(donateUrl)}>
+              Donar
+            </Button>
           </div>
         </div>
       </div>

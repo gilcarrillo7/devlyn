@@ -3,6 +3,7 @@ import Button from "../shared/Button";
 
 import ImgDktp from "../../images/sumate/img1Desktop.png";
 import ImgMob from "../../images/sumate/img1Mob.png";
+import ImgDktpBg from "../../images/sumate/img1DesktopBg.png";
 import { useInView } from "react-intersection-observer";
 
 const Sumate2 = () => {
@@ -59,8 +60,15 @@ const Sumate2 = () => {
         </div>
       </div>
       <img
+        src={ImgDktpBg}
+        className={`hidden lg:block absolute top-0 lg:-right-48 xl:right-0 h-full transition-all delay-500 duration-500 ${
+          inView ? "opacity-100" : "opacity-0 translate-x-24"
+        }`}
+        alt=""
+      />
+      <img
         src={ImgDktp}
-        className={`hidden lg:block absolute top-0 lg:-right-32 xl:right-0 h-full transition-all delay-500 duration-500 ${
+        className={`hidden lg:block absolute top-0 lg:-right-48 xl:right-0 h-full transition-all delay-500 duration-500 ${
           inView ? "opacity-100" : "opacity-0 translate-x-24"
         }`}
         alt=""

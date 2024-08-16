@@ -4,6 +4,8 @@ import Page from "../components/layout/Page";
 import Sumate1 from "../components/sumate/Sumate1";
 import Sumate2 from "../components/sumate/Sumate2";
 import Sumate3 from "../components/sumate/Sumate3";
+import { SEO } from "../components/layout/SEO";
+import { HeadFC } from "gatsby";
 
 const Sumate = () => {
   return (
@@ -16,3 +18,5 @@ const Sumate = () => {
 };
 
 export default Sumate;
+
+export const Head: HeadFC = () => <SEO title="Súmate" />;

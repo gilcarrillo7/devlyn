@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useInView } from "react-intersection-observer";
 import { Carousel } from "react-responsive-carousel";
+import AnimatedNumbers from "react-animated-numbers";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -16,7 +17,7 @@ const Resultado = ({
   index,
 }: {
   img: string;
-  number: string;
+  number: number;
   description: string;
   index: number;
 }) => {
@@ -31,7 +32,21 @@ const Resultado = ({
       <div className="flex items-center justify-center min-h-[80px]">
         <img alt="" className="!w-auto self-center" src={img} />
       </div>
-      <p className="text-4xl text-complementary2 font-bold">{number}</p>
+      <div className="container flex justify-center">
+        <AnimatedNumbers
+          includeComma
+          transitions={(index) => ({
+            type: "spring",
+            duration: index + 0.5,
+          })}
+          animateToNumber={number}
+          fontStyle={{
+            fontSize: 36,
+            color: "#FA8334",
+            fontWeight: "bold",
+          }}
+        />
+      </div>
       <p className="text-lg sm:text-xl text-secondary font-semibold">
         {description}
       </p>
@@ -43,22 +58,22 @@ const Home3 = () => {
   const results = [
     {
       img: Res1,
-      number: "1,589,530",
+      number: 1589530,
       description: "Exámenes de la vista realizados",
     },
     {
       img: Res2,
-      number: "1,181,758",
+      number: 1181758,
       description: "Lentes entregados",
     },
     {
       img: Res3,
-      number: "131,640",
+      number: 131640,
       description: "Horas voluntarias dedicadas",
     },
     {
       img: Res4,
-      number: "16,455",
+      number: 16455,
       description: "Personas voluntarias",
     },
   ];

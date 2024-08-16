@@ -1,10 +1,14 @@
 import * as React from "react";
 
-import Arc from "../../images/sumate/arc1.png";
-import ImgSum1 from "../../images/sumate/imgSum1.png";
 import Button from "../shared/Button";
 import { useInView } from "react-intersection-observer";
 import { navigate } from "gatsby";
+
+import Arc from "../../images/sumate/arc1.png";
+import ImgSum1 from "../../images/sumate/imgSum1.png";
+import ImgSum1Mob from "../../images/sumate/imgSum1Mob.png";
+import ImgSum2 from "../../images/sumate/imgSum2.png";
+import ImgSum2Mob from "../../images/sumate/imgSum2Mob.png";
 
 const FooterSum = () => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
@@ -122,7 +126,7 @@ const Sumate3 = () => {
             Voluntariado corporativo
           </p>
         </div>
-        <div className="absolute right-0 top-0 bg-tertiary w-1/2 sm:w-auto h-[250px] sm:h-auto">
+        <div className="absolute right-0 top-0 bg-tertiary w-1/2 sm:w-[320px] h-[250px] sm:h-auto">
           <img
             className={`absolute bottom-0 sm:relative transition-all delay-500 duration-700 ${
               inView ? "opacity-100" : "opacity-0"
@@ -132,16 +136,25 @@ const Sumate3 = () => {
           />
         </div>
       </div>
-      <div className="relative flex flex-col sm:flex-row">
+      <div
+        ref={ref2}
+        className="relative flex flex-col md:flex-row justify-between"
+      >
         <img
-          ref={ref2}
-          className={`w-full sm:w-auto transition-all delay-300 duration-500 ${
+          className={`w-full sm:w-auto md:hidden transition-all delay-300 duration-500 ${
+            inView ? "opacity-100" : "opacity-0 -translate-x-24"
+          }`}
+          src={ImgSum1Mob}
+          alt=""
+        />
+        <img
+          className={`w-full sm:w-auto hidden md:block transition-all delay-300 duration-500 ${
             inView ? "opacity-100" : "opacity-0 -translate-x-24"
           }`}
           src={ImgSum1}
           alt=""
         />
-        <div className="bg-white mt-[-350px] sm:mt-0 w-full md:w-[calc(100%-350px)] lg:w-[calc(100%-650px)] md:absolute sm:right-4 lg:right-[250px] md:top-1/2 md:-translate-y-1/2 z-10 container text-primary text-lg md:text-lg py-8 md:py-0">
+        <div className="bg-white sm:mt-0 w-full md:w-[calc(100%-350px)] xl:w-[calc(100%-750px)] md:absolute sm:right-4 xl:right-[360px] md:top-1/2 md:-translate-y-1/2 z-10 container text-primary text-lg md:text-lg py-8 md:py-0">
           <p className="mb-4">
             El trabajo que realizan todos nuestros voluntarios es primordial
             para que nuestras jornadas visuales sean un éxito e impacten de
@@ -165,6 +178,20 @@ const Sumate3 = () => {
             Quiero hacer voluntariado
           </Button>
         </div>
+        <img
+          className={`w-full sm:w-auto md:hidden transition-all delay-300 duration-500 ${
+            inView ? "opacity-100" : "opacity-0 -translate-x-24"
+          }`}
+          src={ImgSum2Mob}
+          alt=""
+        />
+        <img
+          className={`w-full sm:w-auto hidden xl:block transition-all delay-300 duration-500 ${
+            inView ? "opacity-100" : "opacity-0 -translate-x-24"
+          }`}
+          src={ImgSum2}
+          alt=""
+        />
       </div>
       <FooterSum />
     </>

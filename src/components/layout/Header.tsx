@@ -1,7 +1,11 @@
 import React from "react";
 import { navigate } from "gatsby";
 import { Helmet } from "react-helmet";
-import { setMenuOpen, selectMenuOpen } from "../../features/ui/uiSlice";
+import {
+  setMenuOpen,
+  selectMenuOpen,
+  selectDonateUrl,
+} from "../../features/ui/uiSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import Menu from "./Menu";
 import HamburgerMenu from "./HamburgerMenu";
@@ -14,10 +18,14 @@ const Header = ({ headerPrimary = false }: { headerPrimary?: boolean }) => {
   const dispatch = useAppDispatch();
 
   const menuOpen = useAppSelector(selectMenuOpen);
+  const donateUrl = useAppSelector(selectDonateUrl);
 
   return (
     <>
-      <button className="position-relative w-full bg-complementary text-primary font-bold text-center py-4 text-xl sm:hidden">
+      <button
+        className="position-relative w-full bg-complementary text-primary font-bold text-center py-4 text-xl sm:hidden"
+        onClick={() => window.open(donateUrl)}
+      >
         Dona
       </button>
       <header className={`absolute w-full`}>
@@ -45,6 +53,7 @@ const Header = ({ headerPrimary = false }: { headerPrimary?: boolean }) => {
                 className={`${
                   menuOpen ? "hidden" : "hidden sm:block"
                 } font-bold sm:min-w-[150px]`}
+                onClick={() => window.open(donateUrl)}
               >
                 Dona
               </Button>
