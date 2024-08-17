@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useInView } from "react-intersection-observer";
-import Page from "../layout/Page";
 
 import Logo1 from "../../images/alianzas/logo1.png";
 import Logo2 from "../../images/alianzas/logo2.png";
@@ -47,7 +46,7 @@ const Home8 = () => {
     Logo19,
   ];
   return (
-    <Page className="py-8 sm:py-4">
+    <div className="min-h-screen flex flex-col container py-8 sm:py-16">
       <p
         id="alianzas"
         ref={ref}
@@ -57,8 +56,10 @@ const Home8 = () => {
       >
         Nuestras alianzas
       </p>
-      <GridLogos logos={logos} />
-    </Page>
+      <div className="flex flex-col justify-center mt-auto flex-1">
+        <GridLogos logos={logos} />
+      </div>
+    </div>
   );
 };
 

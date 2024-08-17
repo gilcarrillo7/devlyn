@@ -1,4 +1,6 @@
 import * as React from "react";
+import { navigate } from "gatsby";
+import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 import Page from "../layout/Page";
@@ -7,10 +9,11 @@ import Button from "../shared/Button";
 import VectorImg from "../../images/jornadasVector.svg";
 import Imagen from "../../images/jornadas1.png";
 import ImagenMob from "../../images/jornadas1Mob.png";
-import { navigate } from "gatsby";
 
 const Home5 = () => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+  const [animate, setAnimate] = useState(false);
+
   return (
     <Page className="bg-secondary-gradient overflow-hidden pt-4">
       <div className="flex flex-col md:flex-row mb-4 sm:mb-0 relative">
@@ -47,7 +50,12 @@ const Home5 = () => {
               transformar el mundo.
             </p>
           </div>
-          <Button variant="primary" onClick={() => navigate("/contacto")}>
+          <Button
+            variant="primary"
+            onClick={() => navigate("/contacto")}
+            onMouseEnter={() => setAnimate(true)}
+            onMouseLeave={() => setAnimate(false)}
+          >
             Contacto
           </Button>
         </div>
@@ -58,9 +66,9 @@ const Home5 = () => {
         className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2"
       />
       <img
-        className={`absolute translate-y-8 ml-10 md:ml-8 md:right-[430px] md:top-12 z-10 transition-all delay-1000 duration-500 ${
+        className={`absolute mt-8 ml-10 md:ml-8 md:right-[430px] md:top-12 z-10 transition-all delay-1000 duration-500 ${
           inView ? "opacity-100" : "opacity-0 translate-y-24"
-        } `}
+        } ${animate ? "animate-spin" : ""}`}
         src={VectorImg}
         alt="textura"
       />

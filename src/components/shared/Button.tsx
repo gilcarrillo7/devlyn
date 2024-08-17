@@ -2,9 +2,16 @@ import * as React from "react";
 import { useInView } from "react-intersection-observer";
 
 interface IProps {
-  variant: "transparent" | "complementary" | "complementary2" | "primary" |"blue";
+  variant:
+    | "transparent"
+    | "complementary"
+    | "complementary2"
+    | "primary"
+    | "blue";
   className?: string;
   onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
   children: React.ReactNode;
   type?: "button" | "submit" | "reset";
 }
@@ -13,6 +20,8 @@ const Button = ({
   variant,
   className = "",
   onClick,
+  onMouseEnter,
+  onMouseLeave,
   type = "button",
   children,
 }: IProps) => {
@@ -27,6 +36,8 @@ const Button = ({
             inView ? "opacity-100" : "opacity-0 translate-y-12"
           }`}
           onClick={onClick}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         >
           {children}
         </button>
@@ -39,6 +50,8 @@ const Button = ({
             inView ? "opacity-100" : "opacity-0 translate-y-12"
           }`}
           onClick={onClick}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         >
           {children}
         </button>
@@ -51,6 +64,8 @@ const Button = ({
             inView ? "opacity-100" : "opacity-0 translate-y-12"
           }`}
           onClick={onClick}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         >
           {children}
         </button>
@@ -63,6 +78,8 @@ const Button = ({
             inView ? "opacity-100" : "opacity-0 translate-y-12"
           }`}
           onClick={onClick}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         >
           {children}
         </button>
@@ -75,6 +92,8 @@ const Button = ({
             inView ? "opacity-100" : "opacity-0 translate-y-12"
           }`}
           onClick={onClick}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         >
           {children}
         </button>

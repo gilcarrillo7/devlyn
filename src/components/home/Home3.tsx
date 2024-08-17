@@ -1,6 +1,8 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { Carousel } from "react-responsive-carousel";
+import { motion, useSpring, useTransform } from "framer-motion";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -8,6 +10,25 @@ import Res2 from "../../images/resultados1.png";
 import Res1 from "../../images/resultados2.png";
 import Res3 from "../../images/resultados3.png";
 import Res4 from "../../images/resultados4.png";
+
+function AnimatedNumber({ number }: { number: number }) {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+  const value = 0;
+  const spring = useSpring(value, { mass: 0.8, stiffness: 75, damping: 15 });
+  const display = useTransform(spring, (current) =>
+    Math.round(current).toLocaleString()
+  );
+
+  useEffect(() => {
+    if (inView) spring.set(number);
+  }, [spring, value, inView]);
+
+  return (
+    <motion.span ref={ref} className="text-complementary2 font-bold text-4xl">
+      {display}
+    </motion.span>
+  );
+}
 
 const Resultado = ({
   img,
@@ -22,9 +43,6 @@ const Resultado = ({
 }) => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
 
-  const numberFormatter = new Intl.NumberFormat();
-  const formatValue = (value: number) => numberFormatter.format(value);
-
   return (
     <div
       ref={ref}
@@ -32,12 +50,14 @@ const Resultado = ({
         inView ? "opacity-100" : "opacity-0 translate-y-24"
       } ${index !== 0 ? "md:border-l border-white" : ""}`}
     >
-      <div className="flex items-center justify-center min-h-[80px]">
-        <img alt="" className="!w-auto self-center" src={img} />
+      <div className="flex items-center justify-center min-h-[80px] mb-4">
+        <img
+          alt=""
+          className="!w-auto self-center hover:scale-[120%]"
+          src={img}
+        />
       </div>
-      <p className=" flex justify-center text-complementary2 font-bold text-4xl w-full h-[30px]">
-        {formatValue(number)}
-      </p>
+      <AnimatedNumber number={number} />
       <p className="text-lg sm:text-xl text-secondary font-semibold">
         {description}
       </p>

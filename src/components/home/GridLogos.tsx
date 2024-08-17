@@ -8,7 +8,7 @@ const Imagen = ({ logo }: { logo: string }) => {
       ref={ref}
       src={logo}
       alt="alianza"
-      className={`transition-all delay-100 duration-300 ${
+      className={`transition-all delay-300 duration-300 ${
         inView ? "opacity-100" : "opacity-0 translate-y-24"
       }`}
     />
