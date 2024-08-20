@@ -20,7 +20,14 @@ const Home6 = () => {
           <p className="text-complementary text-2xl sm:text-5xl mb-4">
             $ 190 MXN pesos
           </p>
-          <Button variant="transparent">Ver ubicación</Button>
+          <Button
+            variant="transparent"
+            onClick={() =>
+              window.open("https://maps.app.goo.gl/KopXhewaHBPuzmZK9")
+            }
+          >
+            Ver ubicación
+          </Button>
         </div>
       </div>
       <svg

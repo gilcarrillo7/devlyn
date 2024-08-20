@@ -74,7 +74,11 @@ const FooterContacto = () => {
   return (
     <div className="flex flex-col sm:flex-row mt-4 sm:mt-12 pb-12">
       <div className="sm:w-1/2 flex flex-col justify-center items-center gap-4">
-        <div className="flex gap-8">
+        <a
+          className="flex gap-8"
+          href="https://api.whatsapp.com/send/?phone=525510785684&text&type=phone_number&app_absent=0"
+          target="_blank"
+        >
           <p className="font-bold text-complementary text-xl sm:text-3xl">
             Whatsapp
           </p>
@@ -96,7 +100,7 @@ const FooterContacto = () => {
               fill="white"
             />
           </svg>
-        </div>
+        </a>
         <Social />
       </div>
       <div className="sm:w-1/2 mt-8 sm:mt-0">

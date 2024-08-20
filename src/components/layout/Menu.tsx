@@ -31,7 +31,7 @@ const Menu = () => {
         <div className="flex flex-col text-3xl sm:text-5xl font-thin w-full gap-6 sm:gap-8 pt-6 sm:pt-0">
           <Option text="Quiénes somos" url="/quienes_somos" />
           <Option text="Súmate" url="/sumate" />
-          <Option text="Testimonios" url="/#testimonios" />
+          {/* <Option text="Testimonios" url="/#testimonios" /> */}
           <Option text="Alianzas" url="/#alianzas" />
           <Option text="Contacto" url="/contacto" />
         </div>

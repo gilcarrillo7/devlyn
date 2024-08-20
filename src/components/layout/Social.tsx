@@ -5,12 +5,12 @@ const Social = ({ color }: { color?: "complementary" | "primary" }) => {
   const social = [
     {
       name: "facebook",
-      url: "",
+      url: "https://www.facebook.com/fundaciondevlynmx",
     },
-    { name: "instagram", url: "" },
+    { name: "instagram", url: "https://www.instagram.com/fundaciondevlyn/" },
     {
       name: "linkedin",
-      url: "",
+      url: "https://www.linkedin.com/company/fundaciondevlyn/",
     },
   ];
   return (

@@ -20,9 +20,9 @@ const IndexPage: React.FC<PageProps> = () => {
       <Home4 />
       <Home5 />
       <Home6 />
-      <div id="testimonios">
+      {/* <div id="testimonios">
         <Home7 />
-      </div>
+      </div> */}
       <Home8 />
     </Layout>
   );
