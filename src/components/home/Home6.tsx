@@ -12,7 +12,7 @@ const Home6 = () => {
       <div className="container flex justify-end mb-16 md:mb-4 pt-4">
         <div className="lg:w-1/2 py-4 lg:py-8 lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
           <p className="text-tertiary text-3xl sm:text-6xl mb-4">
-            Óptica Devlyn
+            Sede de Fundación Devlyn
           </p>
           <p className="text-white text-xl sm:text-4xl mb-4">
             Obtén tus lentes con una cuota de recuperación accesible desde

@@ -9,6 +9,7 @@ import {
   selectSending,
   selectSent,
   sendContact,
+  selectErrorContact,
 } from "../features/api/contactSlice";
 import { useAppDispatch } from "../hooks";
 import Social from "../components/layout/Social";
@@ -78,6 +79,7 @@ const FooterContacto = () => {
           className="flex gap-8"
           href="https://api.whatsapp.com/send/?phone=525510785684&text&type=phone_number&app_absent=0"
           target="_blank"
+          rel="noreferrer"
         >
           <p className="font-bold text-complementary text-xl sm:text-3xl">
             Whatsapp
@@ -94,8 +96,8 @@ const FooterContacto = () => {
               fill="white"
             />
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M16.9244 12.9694C16.5098 12.0444 16.0696 12.0252 15.6677 12.0061C15.3424 11.9933 14.9724 11.9933 14.6024 11.9933C14.2324 11.9933 13.6263 12.1337 13.116 12.6887C12.6056 13.2437 11.1639 14.5961 11.1639 17.3393C11.1639 20.0824 13.1606 22.7298 13.4413 23.1062C13.722 23.4762 17.2944 29.2878 22.9657 31.5206C27.6737 33.377 28.6306 33.007 29.6576 32.9176C30.6783 32.822 32.9558 31.5716 33.4215 30.2702C33.8872 28.9688 33.8872 27.8524 33.7468 27.6228C33.6065 27.3931 33.2365 27.2528 32.6815 26.9721C32.1265 26.6914 29.3833 25.3453 28.873 25.1603C28.3626 24.9753 27.9926 24.8797 27.6162 25.441C27.2462 25.996 26.1745 27.2528 25.8492 27.6228C25.5238 27.9928 25.1985 28.0438 24.6435 27.7631C24.0885 27.4824 22.2895 26.8955 20.1588 24.9945C18.5001 23.5145 17.3838 21.69 17.0584 21.135C16.7331 20.58 17.0265 20.2738 17.3008 19.9994C17.5496 19.7506 17.8558 19.3487 18.1365 19.0234C18.4172 18.6981 18.5065 18.4684 18.6915 18.092C18.8765 17.722 18.7872 17.3967 18.6469 17.116C18.5001 16.8289 17.4157 14.073 16.9244 12.9694Z"
               fill="white"
             />
@@ -133,6 +135,7 @@ const Contacto = () => {
   const dispatch = useAppDispatch();
   const sending = useSelector(selectSending);
   const sent = useSelector(selectSent);
+  const errorContact = useSelector(selectErrorContact);
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
 
   const [form, setForm] = useState({
@@ -141,12 +144,15 @@ const Contacto = () => {
     msg: "",
   });
 
-  const handleForm = (e: FormEvent) => {
-    e.preventDefault();
-    dispatch(sendContact(form));
-  };
   const handleChange = (e: FormEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.currentTarget.name]: e.currentTarget.value });
+  };
+
+  const handleForm = (form: any) => {
+    form.persist();
+    form.preventDefault();
+    dispatch(sendContact(form.target as HTMLFormElement));
+    form.target.reset();
   };
 
   return (
@@ -171,6 +177,7 @@ const Contacto = () => {
                   placeholder="Nombre"
                   name="name"
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div className="w-full md:w-1/2">
@@ -178,7 +185,9 @@ const Contacto = () => {
                   className="text-primary border-b border-primary w-full py-4 outline-none placeholder:text-primary bg-transparent"
                   placeholder="Email"
                   name="mail"
+                  type="mail"
                   onChange={handleChange}
+                  required
                 />
               </div>
             </div>
@@ -189,6 +198,7 @@ const Contacto = () => {
                   placeholder="Mensaje"
                   name="msg"
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div className="w-full md:w-1/2 pt-4 md:pt-0">
@@ -197,7 +207,15 @@ const Contacto = () => {
                 ) : (
                   <>
                     {sent ? (
-                      <p className="text-primary font-lg">Mensaje enviado</p>
+                      errorContact ? (
+                        <p className="text-primary font-lg text-red">
+                          {errorContact}
+                        </p>
+                      ) : (
+                        <p className="text-primary font-lg font-semibold">
+                          Mensaje enviado
+                        </p>
+                      )
                     ) : (
                       <Button
                         variant="complementary2"

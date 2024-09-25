@@ -3,11 +3,6 @@ import { useInView } from "react-intersection-observer";
 
 import Profile from "../../images/somos/profile.png";
 
-import Doc19 from "../../assets/ia2019.pdf";
-import Doc20 from "../../assets/ia2020.pdf";
-import Doc21 from "../../assets/ia2021.pdf";
-import Doc22 from "../../assets/ia2022.pdf";
-
 const Informe = ({ anio, url }: { anio: string; url: string }) => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   return (
@@ -117,23 +112,23 @@ const Somos3 = () => {
   const informes = [
     {
       anio: "2019",
-      url: Doc19,
+      url: "/Informe_Anual_F_Devlyn_2019.pdf",
     },
     {
       anio: "2020",
-      url: Doc20,
+      url: "/Informe_Anual_F_Devlyn_2020.pdf",
     },
     {
       anio: "2021",
-      url: Doc21,
+      url: "/Informe_Anual_F_Devlyn_2021.pdf",
     },
     {
       anio: "2022",
-      url: Doc22,
+      url: "/Informe_Anual_F_Devlyn_2022.pdf",
     },
     {
       anio: "2023",
-      url: "#",
+      url: "/Informe_Anual_F_Devlyn_2023.pdf",
     },
   ];
   return (

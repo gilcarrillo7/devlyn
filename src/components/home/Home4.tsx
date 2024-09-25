@@ -53,7 +53,7 @@ const Home4 = () => {
           inView ? "opacity-100" : "opacity-0 -translate-x-24"
         } `}
       >
-        Contribuimos al cumplimiento de la Agenda 2023:
+        Contribuimos al cumplimiento de la Agenda 2030:
       </p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 mt-8">
         {agenda.map(({ img, description }) => (
