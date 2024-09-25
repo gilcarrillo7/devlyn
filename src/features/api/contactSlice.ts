@@ -45,10 +45,10 @@ export const sendContact = createAsyncThunk<
   { rejectValue: unknown }
 >("contact", async (form) => {
   const response = emailjs.sendForm(
-    "service_3z7zmb8",
-    "template_ki2z0ul",
+    "service_kd6llmt",
+    "template_raup2pp",
     form,
-    "iTFKhfuI6SvAekJaC"
+    "EFt_NIkhYbQ13JV0A"
   );
 
   const data = await response;
