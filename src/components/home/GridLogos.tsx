@@ -33,7 +33,7 @@ const GridLogos = ({ logos }: { logos: any[] }) => {
           <Imagen key={`alizna${index}`} logo={logo} />
         ))}
       </div>
-      <div className="hidden md:flex justify-around gap-8 mt-8">
+      <div className="hidden md:grid grid-cols-6 justify-around gap-8 mt-8">
         {lasts.map((logo, index) => (
           <Imagen key={`aliznaend${index}`} logo={logo} />
         ))}

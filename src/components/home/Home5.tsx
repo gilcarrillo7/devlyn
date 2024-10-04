@@ -33,9 +33,10 @@ const Home5 = () => {
             <p className="mb-4">
               Llevamos los servicios de salud visual a comunidades rurales y
               urbanas de escasos recursos en México a través de la alianza con
-              Organizaciones de la Sociedad Civil y empresas, en las cuales se
-              realiza a cada persona un examen de la vista y se le entrega un
-              kit de lentes (armazón oftálmico, micas con graduación y estuche).
+              Organizaciones de la Sociedad Civil, ONG's y Fundaciones, en las
+              cuales se realiza a cada persona un examen de la vista y se le
+              entregan sus lentes (armazón oftálmico, micas con graduación y
+              estuche).
             </p>
             <p className="mb-4 text-complementary2 font-semibold text-base sm:text-lg md:text-xl">
               En 2023 realizamos más de 80 jornadas beneficiando a más de 19 mil

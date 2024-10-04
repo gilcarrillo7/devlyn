@@ -20,6 +20,14 @@ import Logo16 from "../../images/alianzas/logo16.png";
 import Logo17 from "../../images/alianzas/logo17.png";
 import Logo18 from "../../images/alianzas/logo18.png";
 import Logo19 from "../../images/alianzas/logo19.png";
+import Logo20 from "../../images/alianzas/logo20.png";
+import Logo21 from "../../images/alianzas/logo21.png";
+import Logo22 from "../../images/alianzas/logo22.png";
+import Logo23 from "../../images/alianzas/logo23.png";
+import Logo24 from "../../images/alianzas/logo24.png";
+import Logo25 from "../../images/alianzas/logo25.png";
+import Logo26 from "../../images/alianzas/logo26.png";
+import Logo27 from "../../images/alianzas/logo27.png";
 import GridLogos from "./GridLogos";
 
 const Home8 = () => {
@@ -44,6 +52,14 @@ const Home8 = () => {
     Logo17,
     Logo18,
     Logo19,
+    Logo20,
+    Logo21,
+    Logo22,
+    Logo23,
+    Logo24,
+    Logo25,
+    Logo26,
+    Logo27,
   ];
   return (
     <div className="min-h-screen flex flex-col container py-8 sm:py-16">

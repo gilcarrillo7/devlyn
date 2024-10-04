@@ -137,13 +137,12 @@ const Sumate1 = () => {
               ¡Tu poder de ver es el poder de transformar el mundo!
             </p>
             <p className=" mb-4">
-              Para el <strong>Día Mundial de la Visión</strong> (14 de octubre)
+              Para el <strong>Día Mundial de la Visión</strong> (10 de octubre)
               queremos entregar 50 mil lentes y llevar a cada rincón del país el
               poder de ver y disfrutar el espectáculo de la vida.
             </p>
             <p className=" mb-4">
-              Súmate al movimiento por la salud visual más grande de México y
-              América Latina.
+              Súmate al movimiento por la salud visual más grande de México.
             </p>
             <p className="text-xl sm:text-2xl text-complementary2 mb-8 sm:mb-16">
               Dona desde un par de lentes por $250.00

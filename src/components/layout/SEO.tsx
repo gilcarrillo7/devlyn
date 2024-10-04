@@ -10,7 +10,7 @@ interface IProps {
 export const SEO = ({
   title = "Fundación Devlyn",
   description = "Trabajamos para que más personas tengan acceso a la salud visual y con ello transformar sus vidas de forma positiva.",
-  image = "",
+  image = "/devlyn.jpg",
   url = "",
 }: IProps) => {
   return (

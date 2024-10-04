@@ -198,7 +198,7 @@ const Somos3 = () => {
               inViewText ? "opacity-100" : "opacity-0 translate-y-32"
             }`}
           >
-            Nuestro Consejo Directivo
+            Nuestro Consejo Consultivo
           </p>
         </div>
         <div className="relative w-1/2 sm:w-1/4 bg-primary">

@@ -179,7 +179,7 @@ const Somos3 = () => {
                 inView ? "opacity-100" : "opacity-0 -translate-x-32"
               }`}
             >
-              Nuestro Consejo Directivo
+              Nuestro Consejo Consultivo
             </p>
           </div>
         </div>
