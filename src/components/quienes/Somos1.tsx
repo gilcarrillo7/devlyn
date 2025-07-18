@@ -17,6 +17,17 @@ const Somos1 = () => {
     threshold: 0.2,
     triggerOnce: true,
   });
+  
+  const handleStart = () => {
+    window.dataLayer.push({
+      event: "video_start",
+      category: "Video",
+      action: "Play",
+      label: "Video Propósito Fundación Devlyn",
+    });
+    setLoader(false);
+  };
+
   return (
     <Page className="bg-primary-gradient">
       <div ref={ref} className="flex flex-col sm:flex-row pt-16">
@@ -61,7 +72,7 @@ const Somos1 = () => {
                   controls
                   url={"https://vimeo.com/998393630"}
                   playing={true}
-                  onStart={() => setLoader(false)}
+                  onStart={handleStart}
                 ></ReactPlayer>
               </div>
             )}

@@ -20,11 +20,22 @@ const Header = ({ headerPrimary = false }: { headerPrimary?: boolean }) => {
   const menuOpen = useAppSelector(selectMenuOpen);
   const donateUrl = useAppSelector(selectDonateUrl);
 
+  const handleDonate = () => {
+    window.dataLayer.push({
+      event: "click_dona",
+      category: "Header",
+      action: "Click",
+      label: "Botón Dona",
+    });
+
+    window.open(donateUrl);
+  };
+
   return (
     <>
       <button
         className="position-relative w-full bg-complementary text-primary font-bold text-center py-4 text-xl sm:hidden"
-        onClick={() => window.open(donateUrl)}
+        onClick={handleDonate}
       >
         Dona
       </button>
@@ -53,7 +64,7 @@ const Header = ({ headerPrimary = false }: { headerPrimary?: boolean }) => {
                 className={`${
                   menuOpen ? "hidden" : "hidden sm:block"
                 } font-bold sm:min-w-[150px]`}
-                onClick={() => window.open(donateUrl)}
+                onClick={handleDonate}
               >
                 Dona
               </Button>

@@ -5,13 +5,22 @@ import Profile from "../../images/somos/profile.png";
 
 const Informe = ({ anio, url }: { anio: string; url: string }) => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+  const handleOpen = () => {
+    window.dataLayer.push({
+      event: "click_informe",
+      category: "Informes anuales",
+      action: "Click",
+      label: `Informe ${anio}`,
+    });
+    window.open(url);
+  };
   return (
     <div
       ref={ref}
       className={`relative cursor-pointer border border-white transition-all delay-300 duration-500 ${
         inView ? "opacity-100" : "opacity-0 translate-y-32"
       }`}
-      onClick={() => window.open(url)}
+      onClick={handleOpen}
       role="button"
     >
       <img src={Profile} className="w-full h-full opacity-0" alt="profile" />
@@ -111,10 +120,6 @@ const Somos3 = () => {
   ];
   const informes = [
     {
-      anio: "2019",
-      url: "/Informe_Anual_F_Devlyn_2019.pdf",
-    },
-    {
       anio: "2020",
       url: "/Informe_Anual_F_Devlyn_2020.pdf",
     },
@@ -129,6 +134,10 @@ const Somos3 = () => {
     {
       anio: "2023",
       url: "/Informe_Anual_F_Devlyn_2023.pdf",
+    },
+    {
+      anio: "2024",
+      url: "/Informe_Anual_F_Devlyn_2024.pdf",
     },
   ];
   return (
